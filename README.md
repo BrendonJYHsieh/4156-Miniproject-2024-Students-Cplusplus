@@ -90,4 +90,4 @@ find "$SRC_DIR" "$TEST_DIR" "$BUILD_DIR" \
 echo "Coverage analysis complete. Results saved in $BUILD_DIR/coverage.info"
 ```
 ## Coverage
-![plot](coverage.png)
+![plot](coverage.jpg)
