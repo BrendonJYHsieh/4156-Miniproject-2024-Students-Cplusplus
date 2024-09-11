@@ -6,6 +6,9 @@ set(INCLUDE_PATHS external_libraries/boost_1_85_0 external_libraries/Crow-1.2.0-
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+# Add the compiler flags
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC -fprofile-arcs -ftest-coverage -Wall -Werror")
+
 # Main project executable
 add_executable(IndividualMiniproject 
     src/main.cpp 
@@ -42,11 +45,16 @@ enable_testing()
 
 # Test executable
 add_executable(IndividualMiniprojectTests
-  test/sample.cpp
   test/CourseUnitTests.cpp
+  test/DepartmentTests.cpp
+  test/MyFileDatabaseTests.cpp
+  test/MyAppTests.cpp
+  test/RouteControllerTests.cpp
   src/Course.cpp
   src/Department.cpp
   src/MyFileDatabase.cpp
+  src/MyApp.cpp
+  src/RouteController.cpp
 )
 
 target_include_directories(IndividualMiniprojectTests PRIVATE 
@@ -76,8 +84,17 @@ if (CPPLINT)
         src/RouteController.cpp
         src/MyApp.cpp
         src/Globals.cpp
-        test/sample.cpp
+        include/Course.h 
+        include/Department.h 
+        include/MyFileDatabase.h 
+        include/RouteController.h
+        include/MyApp.h
+        include/Globals.h
         test/CourseUnitTests.cpp
+        test/DepartmentTests.cpp
+        test/MyFileDatabaseTests.cpp
+        test/MyAppTests.cpp
+        test/RouteControllerTests.cpp
     )
 
     # Custom target to run cpplint

@@ -1,7 +1,6 @@
 // Copyright 2024 Chun-Yao Hsieh @ Columbia University. All rights reserved.
 #include "Course.h"
 #include <iostream>
-#include <string>
 
 /**
  * Constructs a new Course object with the given parameters. Initial count starts at 0.
@@ -42,11 +41,22 @@ bool Course::enrollStudent()
  */
 bool Course::dropStudent()
 {
-    if(enrolledStudentCount > 0){
+    if (enrolledStudentCount > 0)
+    {
         enrolledStudentCount--;
         return true;
     }
     return false;
+}
+
+int Course::getEnrolledStudentCount() const
+{
+    return enrolledStudentCount;
+}
+
+int Course::getEnrollmentCapacity() const
+{
+    return enrollmentCapacity;
 }
 
 std::string Course::getCourseLocation() const
@@ -66,14 +76,11 @@ std::string Course::getCourseTimeSlot() const
 
 std::string Course::display() const
 {
-    return "\nInstructor: " + instructorName + "; Location: " + courseLocation + "; Time: " + courseTimeSlot;
-}
+    return "\nInstructor: " + instructorName + "; Location: " + courseLocation + "; Time: " + courseTimeSlot;}
 
 void Course::reassignInstructor(const std::string &newInstructorName)
 {
-    std::cout << "Old Instructor: " << instructorName << std::endl;
-    this->instructorName = newInstructorName; // Ensure the class member is being updated
-    std::cout << "New Instructor: " << this->instructorName << std::endl;
+    instructorName = newInstructorName;
 }
 
 void Course::reassignLocation(const std::string &newLocation)
