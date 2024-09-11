@@ -23,6 +23,8 @@ SRC_DIR="$BUILD_DIR/CMakeFiles/IndividualMiniprojectTests.dir/src"
 TEST_DIR="$BUILD_DIR/CMakeFiles/IndividualMiniprojectTests.dir/test"
 COVERAGE_DIR="$SRC_DIR/code_coverage"
 
+cd "$BUILD_DIR" || { echo "Failed to change to source directory"; exit 1; }
+cmake ..
 
 # # Clean up
 find "$SRC_DIR" "$TEST_DIR" "$BUILD_DIR" \
