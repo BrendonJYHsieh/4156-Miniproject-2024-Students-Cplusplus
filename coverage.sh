@@ -15,7 +15,7 @@ if [[ "$1" == "-h" || "$1" == "--help" ]]; then
 fi
 
 # Set BASE_PATH
-BASE_PATH="${1:-$HOME/4156-Miniproject-2024-Students-Cplusplus/IndividualMiniprojectC++}"
+BASE_PATH="${1:-$(pwd)/IndividualMiniprojectC++}"
 
 # Define directories
 BUILD_DIR="$BASE_PATH/build"
